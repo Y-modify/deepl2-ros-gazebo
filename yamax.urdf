@@ -1,0 +1,81 @@
+<robot name="yamax">
+  <link name="head" />
+  <link name="body" />
+  <link name="arm_right_1" />
+  <link name="arm_right_2" />
+  <link name="arm_left_1" />
+  <link name="arm_left_2" />
+  <link name="stomach" />
+  <link name="hip" />
+  <link name="leg_right_1" />
+  <link name="leg_right_2" />
+  <link name="leg_left_1" />
+  <link name="leg_left_2" />
+  <link name="foot_right" />
+  <link name="foot_left" />
+
+  <joint name="neck" type="continuous">
+    <parent link="body"/>
+    <child link="head"/>
+  </joint>
+  
+  <joint name="shoulder_right" type="continuous">
+    <parent link="body"/>
+    <child link="arm_right_1"/>
+  </joint>
+
+  <joint name="shoulder_left" type="continuous">
+    <parent link="body"/>
+    <child link="arm_left_1"/>
+  </joint>
+
+  <joint name="elbow_right" type="continuous">
+    <parent link="arm_right_1"/>
+    <child link="arm_right_2"/>
+  </joint>
+
+  <joint name="elbow_left" type="continuous">
+    <parent link="arm_left_1"/>
+    <child link="arm_left_2"/>
+  </joint>
+
+  <joint name="backbone_1" type="continuous">
+    <parent link="body"/>
+    <child link="stomach"/>
+  </joint>
+
+  <joint name="backbone_2" type="continuous">
+    <parent link="stomach"/>
+    <child link="hip"/>
+  </joint>
+
+  <joint name="hip_joint_right" type="continuous">
+    <parent link="hip"/>
+    <child link="leg_right_1"/>
+  </joint>
+
+  <joint name="hip_joint_left" type="continuous">
+    <parent link="hip"/>
+    <child link="leg_left_1"/>
+  </joint>
+
+  <joint name="knee_right" type="continuous">
+    <parent link="leg_right_1"/>
+    <child link="leg_right_2"/>
+  </joint>
+
+  <joint name="knee_left" type="continuous">
+    <parent link="leg_left_1"/>
+    <child link="leg_left_2"/>
+  </joint>
+
+  <joint name="ankle_right" type="continuous">
+    <parent link="leg_right_2"/>
+    <child link="foot_right"/>
+  </joint>
+
+  <joint name="ankle_left" type="continuous">
+    <parent link="leg_left_2"/>
+    <child link="foot_left"/>
+  </joint>
+</robot>
