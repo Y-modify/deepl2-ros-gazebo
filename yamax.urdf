@@ -20,7 +20,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="8 10 5" />
+        <box size="8 6 5" />
       </geometry>
       <material name="aluminium" />
     </visual>
@@ -155,7 +155,7 @@
     <parent link="body"/>
     <child link="head"/>
 
-    <origin xyz="0 6.5 -1" rpy="0 0 0" />
+    <origin xyz="0 4.5 -1" rpy="0 0 0" />
     <axis xyz="0 1 0" />
   </joint>
 
@@ -163,7 +163,7 @@
     <parent link="body"/>
     <child link="arm_right_virtual"/>
 
-    <origin xyz="-5 4 -1" rpy="0 0 0" />
+    <origin xyz="-5 2 -1" rpy="0 0 0" />
     <axis xyz="1 0 0" />
   </joint>
 
@@ -179,7 +179,7 @@
     <parent link="body"/>
     <child link="arm_left_virtual"/>
 
-    <origin xyz="5 4 -1" rpy="0 0 0" />
+    <origin xyz="5 2 -1" rpy="0 0 0" />
     <axis xyz="1 0 0" />
   </joint>
 
@@ -211,7 +211,7 @@
     <parent link="body"/>
     <child link="stomach"/>
 
-    <origin xyz="0 3 0" rpy="0 0 0" />
+    <origin xyz="0 -1 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
   </joint>
 
