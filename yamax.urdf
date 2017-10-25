@@ -72,19 +72,21 @@
 
   <link name="stomach">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 -3 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 6" />
+        <box size="3 6 6" />
       </geometry>
       <material name="aluminium" />
     </visual>
   </link>
 
+  <link name="backbone_virtual" />
+
   <link name="hip">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="8 1 5" />
+        <box size="9 1 5" />
       </geometry>
       <material name="mdf" />
     </visual>
@@ -211,12 +213,20 @@
     <parent link="body"/>
     <child link="stomach"/>
 
-    <origin xyz="0 -1 0" rpy="0 0 0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
   </joint>
 
-  <joint name="backbone_2" type="continuous">
+  <joint name="backbone_2_x" type="continuous">
     <parent link="stomach"/>
+    <child link="backbone_virtual"/>
+
+    <origin xyz="0 -6 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+
+  <joint name="backbone_2_z" type="continuous">
+    <parent link="backbone_virtual"/>
     <child link="hip"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
