@@ -159,155 +159,174 @@
   </link>
 
 
-  <joint name="neck" type="continuous">
+  <joint name="neck" type="revolute">
     <parent link="body"/>
     <child link="head"/>
 
     <origin xyz="0 4.5 0.5" rpy="0 0 0" />
     <axis xyz="0 1 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="shoulder_right_x" type="continuous">
+  <joint name="shoulder_right_x" type="revolute">
     <parent link="body"/>
     <child link="arm_right_virtual"/>
 
     <origin xyz="-5 2 1" rpy="0 0 0" />
     <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="shoulder_right_z" type="continuous">
+  <joint name="shoulder_right_z" type="revolute">
     <parent link="arm_right_virtual"/>
     <child link="arm_right_1"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="shoulder_left_x" type="continuous">
+  <joint name="shoulder_left_x" type="revolute">
     <parent link="body"/>
     <child link="arm_left_virtual"/>
 
     <origin xyz="5 2 1" rpy="0 0 0" />
     <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="shoulder_left_z" type="continuous">
+  <joint name="shoulder_left_z" type="revolute">
     <parent link="arm_left_virtual"/>
     <child link="arm_left_1"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="elbow_right" type="continuous">
+  <joint name="elbow_right" type="revolute">
     <parent link="arm_right_1"/>
     <child link="arm_right_2"/>
 
     <origin xyz="-1 -4 -1" rpy="0 -1.5708 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="elbow_left" type="continuous">
+  <joint name="elbow_left" type="revolute">
     <parent link="arm_left_1"/>
     <child link="arm_left_2"/>
 
     <origin xyz="1 -4 -1" rpy="0 -1.5708 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="backbone_1" type="continuous">
+  <joint name="backbone_1" type="revolute">
     <parent link="body"/>
     <child link="stomach"/>
 
     <origin xyz="0 0 1.5" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="backbone_2" type="continuous">
+  <joint name="backbone_2" type="revolute">
     <parent link="stomach"/>
     <child link="hip"/>
 
     <origin xyz="0 -5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="hip_joint_right" type="continuous">
+  <joint name="hip_joint_right" type="revolute">
     <parent link="hip"/>
     <child link="leg_right_1"/>
 
     <origin xyz="-2.5 -2.5 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="hip_joint_left" type="continuous">
+  <joint name="hip_joint_left" type="revolute">
     <parent link="hip"/>
     <child link="leg_left_1"/>
 
     <origin xyz="2.5 -2.5 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="knee_right_x" type="continuous">
+  <joint name="knee_right_x" type="revolute">
     <parent link="leg_right_1"/>
     <child link="leg_right_1_virtual"/>
 
     <origin xyz="0 -4.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="knee_right_z" type="continuous">
+  <joint name="knee_right_z" type="revolute">
     <parent link="leg_right_1_virtual"/>
     <child link="leg_right_2"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="knee_left_x" type="continuous">
+  <joint name="knee_left_x" type="revolute">
     <parent link="leg_left_1"/>
     <child link="leg_left_1_virtual"/>
 
     <origin xyz="0 -4.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="knee_left_z" type="continuous">
+  <joint name="knee_left_z" type="revolute">
     <parent link="leg_left_1_virtual"/>
     <child link="leg_left_2"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="ankle_right_x" type="continuous">
+  <joint name="ankle_right_x" type="revolute">
     <parent link="leg_right_2"/>
     <child link="leg_right_2_virtual"/>
 
     <origin xyz="0 -4.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="ankle_right_z" type="continuous">
+  <joint name="ankle_right_z" type="revolute">
     <parent link="leg_right_2_virtual"/>
     <child link="foot_right"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="ankle_left_x" type="continuous">
+  <joint name="ankle_left_x" type="revolute">
     <parent link="leg_left_2"/>
     <child link="leg_left_2_virtual"/>
 
     <origin xyz="0 -4.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="ankle_left_z" type="continuous">
+  <joint name="ankle_left_z" type="revolute">
     <parent link="leg_left_2_virtual"/>
     <child link="foot_left"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 </robot>
