@@ -1,57 +1,210 @@
 <robot name="yamax">
-  <link name="head" />
-  <link name="body" />
-  <link name="arm_right_1" />
-  <link name="arm_right_2" />
-  <link name="arm_left_1" />
-  <link name="arm_left_2" />
-  <link name="stomach" />
-  <link name="hip" />
-  <link name="leg_right_1" />
-  <link name="leg_right_2" />
-  <link name="leg_left_1" />
-  <link name="leg_left_2" />
-  <link name="foot_right" />
-  <link name="foot_left" />
+  <material name="aluminium">
+    <color rgba="0.5820 0.6445 0.6484 1.0"/>
+  </material>
+  <material name="mdf">
+    <color rgba="0.8984 0.4922 0.1328 1.0"/>
+  </material>
+
+  <link name="head">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="2.5 2 2" />
+      </geometry>
+      <material name="aluminium" />
+    </visual>
+  </link>
+
+  <link name="body">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="8 10 5" />
+      </geometry>
+      <material name="aluminium" />
+    </visual>
+  </link>
+
+  <link name="arm_right_virtual" />
+
+  <link name="arm_right_1">
+    <visual>
+      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 5 0.5" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="arm_right_2">
+    <visual>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 3 0.5" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="arm_left_virtual" />
+
+  <link name="arm_left_1">
+    <visual>
+      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 5 0.5" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="arm_left_2">
+    <visual>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 3 0.5" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="stomach">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 6" />
+      </geometry>
+      <material name="aluminium" />
+    </visual>
+  </link>
+
+  <link name="hip">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="8 1 5" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="leg_right_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="leg_right_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="leg_left_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="leg_left_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="foot_right">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="4 1 5" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+
+  <link name="foot_left">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="4 1 5" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+  </link>
+  
 
   <joint name="neck" type="continuous">
     <parent link="body"/>
     <child link="head"/>
 
-    <origin xyz="0 10 -1" rpy="0 0 0" />
+    <origin xyz="0 6.5 -1" rpy="0 0 0" />
     <axis xyz="0 1 0" />
   </joint>
 
   <joint name="shoulder_right" type="continuous">
     <parent link="body"/>
+    <child link="arm_right_virtual"/>
+
+    <origin xyz="-5 4 -1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+
+  <joint name="shoulder_right_2" type="continuous">
+    <parent link="arm_right_virtual"/>
     <child link="arm_right_1"/>
 
-    <origin xyz="-4 9 -1" rpy="0 0 -1.5708" />
-    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
   </joint>
 
   <joint name="shoulder_left" type="continuous">
     <parent link="body"/>
+    <child link="arm_left_virtual"/>
+
+    <origin xyz="5 4 -1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+
+  <joint name="shoulder_left_2" type="continuous">
+    <parent link="arm_left_virtual"/>
     <child link="arm_left_1"/>
 
-    <origin xyz="4 9 -1" rpy="0 0 1.5708" />
-    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
   </joint>
 
   <joint name="elbow_right" type="continuous">
     <parent link="arm_right_1"/>
     <child link="arm_right_2"/>
 
-    <origin xyz="0 0 0" rpy="0 0 -1.5708" />
-    <axis xyz="0 1 0" />
+    <origin xyz="-1 -4 -1" rpy="0 -1.5708 0" />
+    <axis xyz="0 0 1" />
   </joint>
 
   <joint name="elbow_left" type="continuous">
     <parent link="arm_left_1"/>
     <child link="arm_left_2"/>
 
-    <origin xyz="0 0 0" rpy="0 0 1.5708" />
-    <axis xyz="0 1 0" />
+    <origin xyz="1 -4 -1" rpy="0 -1.5708 0" />
+    <axis xyz="0 0 1" />
   </joint>
 
   <joint name="backbone_1" type="continuous">
@@ -91,7 +244,7 @@
     <child link="leg_right_2"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <axis xyz="0 0 1" />
+    <axis xyz="1 0 0" />
   </joint>
 
   <joint name="knee_left" type="continuous">
@@ -99,7 +252,7 @@
     <child link="leg_left_2"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <axis xyz="0 0 1" />
+    <axis xyz="1 0 0" />
   </joint>
 
   <joint name="ankle_right" type="continuous">
@@ -107,7 +260,7 @@
     <child link="foot_right"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <axis xyz="0 0 1" />
+    <axis xyz="1 0 0" />
   </joint>
 
   <joint name="ankle_left" type="continuous">
@@ -115,6 +268,6 @@
     <child link="foot_left"/>
 
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <axis xyz="0 0 1" />
+    <axis xyz="1 0 0" />
   </joint>
 </robot>
