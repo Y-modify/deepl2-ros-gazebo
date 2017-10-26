@@ -90,8 +90,6 @@
     </visual>
   </link>
 
-  <link name="leg_right_1_virtual" />
-
   <link name="leg_right_1">
     <visual>
       <origin xyz="0 -2 0" rpy="0 0 0" />
@@ -113,8 +111,6 @@
       <material name="mdf" />
     </visual>
   </link>
-
-  <link name="leg_left_1_virtual" />
 
   <link name="leg_left_1">
     <visual>
@@ -258,39 +254,21 @@
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="knee_right_x" type="revolute">
+  <joint name="knee_right" type="revolute">
     <parent link="leg_right_1"/>
-    <child link="leg_right_1_virtual"/>
-
-    <origin xyz="0 -4.5 0" rpy="0 0 0" />
-    <axis xyz="1 0 0" />
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
-  </joint>
-
-  <joint name="knee_right_z" type="revolute">
-    <parent link="leg_right_1_virtual"/>
     <child link="leg_right_2"/>
 
-    <origin xyz="0 0 0" rpy="0 0 0" />
-    <axis xyz="0 0 1" />
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
-  </joint>
-
-  <joint name="knee_left_x" type="revolute">
-    <parent link="leg_left_1"/>
-    <child link="leg_left_1_virtual"/>
-
     <origin xyz="0 -4.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="knee_left_z" type="revolute">
-    <parent link="leg_left_1_virtual"/>
+  <joint name="knee_left" type="revolute">
+    <parent link="leg_left_1"/>
     <child link="leg_left_2"/>
 
-    <origin xyz="0 0 0" rpy="0 0 0" />
-    <axis xyz="0 0 1" />
+    <origin xyz="0 -4.5 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
