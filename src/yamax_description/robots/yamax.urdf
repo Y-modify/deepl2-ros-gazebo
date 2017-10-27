@@ -383,6 +383,15 @@
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="neck_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="neck">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="A">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="shoulder_right_x" type="revolute">
     <parent link="base_link"/>
@@ -392,6 +401,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="shoulder_right_x_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_right_x">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="E">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="shoulder_right_z" type="revolute">
     <parent link="arm_right_virtual"/>
@@ -401,6 +419,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="shoulder_right_z_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_right_z">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="F">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="shoulder_left_x" type="revolute">
     <parent link="base_link"/>
@@ -410,6 +437,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="shoulder_left_x_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_left_x">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="B">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="shoulder_left_z" type="revolute">
     <parent link="arm_left_virtual"/>
@@ -419,6 +455,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="shoulder_left_z_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_left_z">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="C">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="elbow_right" type="revolute">
     <parent link="arm_right_1"/>
@@ -428,6 +473,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="elbow_right_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_right">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="G">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="elbow_left" type="revolute">
     <parent link="arm_left_1"/>
@@ -437,6 +491,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="elbow_left_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_left">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="D">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="backbone_1" type="revolute">
     <parent link="base_link"/>
@@ -446,6 +509,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="backbone_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="backbone_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="H">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="backbone_2" type="revolute">
     <parent link="stomach"/>
@@ -455,6 +527,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="backbone_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="backbone_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="I">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="hip_joint_right_z" type="revolute">
     <parent link="hip"/>
@@ -464,6 +545,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="hip_joint_right_z_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="hip_joint_right_z">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="K">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="hip_joint_right_x" type="revolute">
     <parent link="hip_right"/>
@@ -473,6 +563,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="hip_joint_right_x_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="hip_joint_right_x">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="hip_joint_left_z" type="revolute">
     <parent link="hip"/>
@@ -482,6 +581,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="hip_joint_left_z_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="hip_joint_left_z">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Q">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="hip_joint_left_x" type="revolute">
     <parent link="hip_left"/>
@@ -491,6 +599,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="hip_joint_left_zxtrans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="hip_joint_left_x">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="knee_right" type="revolute">
     <parent link="leg_right_1"/>
@@ -500,6 +617,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="knee_right_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="knee_right">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="knee_left" type="revolute">
     <parent link="leg_left_1"/>
@@ -509,6 +635,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="knee_left_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="knee_left">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="S">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="ankle_1_right" type="revolute">
     <parent link="leg_right_2"/>
@@ -518,6 +653,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="ankle_1_right_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="ankle_1_right">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="N">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="ankle_1_left" type="revolute">
     <parent link="leg_left_2"/>
@@ -527,6 +671,15 @@
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="ankle_1_left_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="ankle_1_left">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="T">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="ankle_2_right" type="revolute">
     <parent link="leg_right_3"/>
@@ -536,6 +689,15 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="ankle_2_right_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="ankle_2_right">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="O">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <joint name="ankle_2_left" type="revolute">
     <parent link="leg_left_3"/>
@@ -545,4 +707,17 @@
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
+  <transmission name="ankle_2_right_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="ankle_2_right">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="U">
+      <mechanicalReduction>50</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
+  </gazebo>
 </robot>
