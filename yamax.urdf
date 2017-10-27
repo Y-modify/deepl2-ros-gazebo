@@ -138,74 +138,130 @@
     </collision>
   </link>
 
-  <link name="hip_right_virtual" />
+  <link name="hip_right_virtual">
+    <visual>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+    <collision>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
+      </geometry>
+    </collision>
+  </link>
 
   <link name="leg_right_1">
     <visual>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 2 4" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 2 4" />
       </geometry>
     </collision>
   </link>
-
-  <link name="leg_right_2_virtual" />
 
   <link name="leg_right_2">
     <visual>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 1 4" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 1 4" />
       </geometry>
     </collision>
   </link>
 
-  <link name="hip_left_virtual" />
+  <link name="leg_right_3">
+    <visual>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+    <collision>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="hip_left_virtual">
+    <visual>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+    <collision>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
+      </geometry>
+    </collision>
+  </link>
 
   <link name="leg_left_1">
     <visual>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 2 4" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 2 4" />
       </geometry>
     </collision>
   </link>
 
-  <link name="leg_left_2_virtual" />
-
   <link name="leg_left_2">
     <visual>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 1 4" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 4 4" />
+        <box size="3 1 4" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="leg_left_3">
+    <visual>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
+      </geometry>
+      <material name="mdf" />
+    </visual>
+    <collision>
+      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 3 4" />
       </geometry>
     </collision>
   </link>
@@ -324,39 +380,39 @@
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="hip_joint_right_x" type="revolute">
+  <joint name="hip_joint_right_z" type="revolute">
     <parent link="hip"/>
     <child link="hip_right_virtual"/>
 
-    <origin xyz="-2.5 -2.5 0" rpy="0 0 0" />
-    <axis xyz="1 0 0" />
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
-  </joint>
-
-  <joint name="hip_joint_right_z" type="revolute">
-    <parent link="hip_right_virtual"/>
-    <child link="leg_right_1"/>
-
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="-2.5 -1.5 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="hip_joint_left_x" type="revolute">
-    <parent link="hip"/>
-    <child link="hip_left_virtual"/>
+  <joint name="hip_joint_right_x" type="revolute">
+    <parent link="hip_right_virtual"/>
+    <child link="leg_right_1"/>
 
-    <origin xyz="2.5 -2.5 0" rpy="0 0 0" />
+    <origin xyz="0 -3.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
   <joint name="hip_joint_left_z" type="revolute">
+    <parent link="hip"/>
+    <child link="hip_left_virtual"/>
+
+    <origin xyz="2.5 -1.5 0" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
+  </joint>
+
+  <joint name="hip_joint_left_x" type="revolute">
     <parent link="hip_left_virtual"/>
     <child link="leg_left_1"/>
 
-    <origin xyz="0 0 0" rpy="0 0 0" />
-    <axis xyz="0 0 1" />
+    <origin xyz="0 -3.5 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
@@ -364,7 +420,7 @@
     <parent link="leg_right_1"/>
     <child link="leg_right_2"/>
 
-    <origin xyz="0 -4.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -373,43 +429,43 @@
     <parent link="leg_left_1"/>
     <child link="leg_left_2"/>
 
-    <origin xyz="0 -4.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="ankle_right_x" type="revolute">
+  <joint name="ankle_1_right" type="revolute">
     <parent link="leg_right_2"/>
-    <child link="leg_right_2_virtual"/>
+    <child link="leg_right_3"/>
 
-    <origin xyz="0 -4.5 0" rpy="0 0 0" />
+    <origin xyz="0 -1.5 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="ankle_right_z" type="revolute">
-    <parent link="leg_right_2_virtual"/>
+  <joint name="ankle_1_left" type="revolute">
+    <parent link="leg_left_2"/>
+    <child link="leg_left_3"/>
+
+    <origin xyz="0 -1.5 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
+  </joint>
+
+  <joint name="ankle_2_right" type="revolute">
+    <parent link="leg_right_3"/>
     <child link="foot_right"/>
 
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 -3.5 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
 
-  <joint name="ankle_left_x" type="revolute">
-    <parent link="leg_left_2"/>
-    <child link="leg_left_2_virtual"/>
-
-    <origin xyz="0 -4.5 0" rpy="0 0 0" />
-    <axis xyz="1 0 0" />
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
-  </joint>
-
-  <joint name="ankle_left_z" type="revolute">
-    <parent link="leg_left_2_virtual"/>
+  <joint name="ankle_2_left" type="revolute">
+    <parent link="leg_left_3"/>
     <child link="foot_left"/>
 
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 -3.5 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
