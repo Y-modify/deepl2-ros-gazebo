@@ -45,14 +45,14 @@
     <visual>
       <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.09 0.005" />
+        <box size="0.02 0.09 0.004" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
       <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.09 0.005" />
+        <box size="0.02 0.09 0.004" />
       </geometry>
     </collision>
   </link>
@@ -61,14 +61,14 @@
     <visual>
       <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.06 0.005" />
+        <box size="0.02 0.06 0.004" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
       <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.06 0.005" />
+        <box size="0.02 0.06 0.004" />
       </geometry>
     </collision>
   </link>
@@ -79,14 +79,14 @@
     <visual>
       <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.09 0.005" />
+        <box size="0.02 0.09 0.004" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
       <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.09 0.005" />
+        <box size="0.02 0.09 0.004" />
       </geometry>
     </collision>
   </link>
@@ -95,14 +95,14 @@
     <visual>
       <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.06 0.005" />
+        <box size="0.02 0.06 0.004" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
       <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.02 0.06 0.005" />
+        <box size="0.02 0.06 0.004" />
       </geometry>
     </collision>
   </link>
@@ -127,14 +127,14 @@
     <visual>
       <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.11 0.005 0.05" />
+        <box size="0.11 0.004 0.05" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
       <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.11 0.005 0.05" />
+        <box size="0.11 0.004 0.05" />
       </geometry>
     </collision>
   </link>
@@ -271,14 +271,14 @@
     <visual>
       <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.060 0.005 0.090" />
+        <box size="0.060 0.004 0.090" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
       <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.060 0.005 0.090" />
+        <box size="0.060 0.004 0.090" />
       </geometry>
     </collision>
   </link>
@@ -287,14 +287,14 @@
     <visual>
       <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.060 0.005 0.090" />
+        <box size="0.060 0.004 0.090" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
       <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.060 0.005 0.090" />
+        <box size="0.060 0.004 0.090" />
       </geometry>
     </collision>
   </link>
@@ -304,7 +304,7 @@
     <parent link="base_link"/>
     <child link="head"/>
 
-    <origin xyz="0 0.070 -0.005" rpy="0 0 0" />
+    <origin xyz="0 0.070 -0.004" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -367,7 +367,7 @@
     <parent link="base_link"/>
     <child link="stomach"/>
 
-    <origin xyz="0 -0.020 0.005" rpy="0 0 0" />
+    <origin xyz="0 -0.020 0.004" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
