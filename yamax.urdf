@@ -11,14 +11,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="2.5 2 2" />
+        <box size="0.035 0.023 0.035" />
       </geometry>
       <material name="aluminium" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="2.5 2 2" />
+        <box size="0.035 0.023 0.035" />
       </geometry>
     </collision>
   </link>
@@ -27,14 +27,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="8 6 5" />
+        <box size="0.11 0.094 0.05" />
       </geometry>
       <material name="aluminium" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="8 6 5" />
+        <box size="0.11 0.094 0.05" />
       </geometry>
     </collision>
   </link>
@@ -43,32 +43,32 @@
 
   <link name="arm_right_1">
     <visual>
-      <origin xyz="0 -3 0" rpy="0 0 0" />
+      <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 6 0.5" />
+        <box size="0.02 0.09 0.005" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -3 0" rpy="0 0 0" />
+      <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 6 0.5" />
+        <box size="0.02 0.09 0.005" />
       </geometry>
     </collision>
   </link>
 
   <link name="arm_right_2">
     <visual>
-      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 5 0.5" />
+        <box size="0.02 0.06 0.005" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 5 0.5" />
+        <box size="0.02 0.06 0.005" />
       </geometry>
     </collision>
   </link>
@@ -77,224 +77,224 @@
 
   <link name="arm_left_1">
     <visual>
-      <origin xyz="0 -3 0" rpy="0 0 0" />
+      <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 6 0.5" />
+        <box size="0.02 0.09 0.005" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -3 0" rpy="0 0 0" />
+      <origin xyz="0 -0.045 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 6 0.5" />
+        <box size="0.02 0.09 0.005" />
       </geometry>
     </collision>
   </link>
 
   <link name="arm_left_2">
     <visual>
-      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 5 0.5" />
+        <box size="0.02 0.06 0.005" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.03 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 5 0.5" />
+        <box size="0.02 0.06 0.005" />
       </geometry>
     </collision>
   </link>
 
   <link name="stomach">
     <visual>
-      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.035 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 5 3" />
+        <box size="0.053 0.070 0.054" />
       </geometry>
       <material name="aluminium" />
     </visual>
     <collision>
-      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.035 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 5 3" />
+        <box size="0.053 0.070 0.054" />
       </geometry>
     </collision>
   </link>
 
   <link name="hip">
     <visual>
-      <origin xyz="0 -0.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="9 1 5" />
+        <box size="0.11 0.005 0.05" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -0.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="9 1 5" />
+        <box size="0.11 0.005 0.05" />
       </geometry>
     </collision>
   </link>
 
   <link name="hip_right">
     <visual>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0225 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.045 0.055" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0225 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.045 0.055" />
       </geometry>
     </collision>
   </link>
 
   <link name="leg_right_1">
     <visual>
-      <origin xyz="0 -1 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0115 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 2 4" />
+        <box size="0.045 0.023 0.045" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0115 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 2 4" />
+        <box size="0.045 0.023 0.045" />
       </geometry>
     </collision>
   </link>
 
   <link name="leg_right_2">
     <visual>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0175 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 1 4" />
+        <box size="0.060 0.035 0.022" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0175 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 1 4" />
+        <box size="0.060 0.035 0.022" />
       </geometry>
     </collision>
   </link>
 
   <link name="leg_right_3">
     <visual>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.021 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.042 0.055" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.021 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.042 0.055" />
       </geometry>
     </collision>
   </link>
 
   <link name="hip_left">
     <visual>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0225 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.045 0.055" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0225 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.045 0.055" />
       </geometry>
     </collision>
   </link>
 
   <link name="leg_left_1">
     <visual>
-      <origin xyz="0 -1 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0115 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 2 4" />
+        <box size="0.045 0.023 0.045" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0115 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 2 4" />
+        <box size="0.045 0.023 0.045" />
       </geometry>
     </collision>
   </link>
 
   <link name="leg_left_2">
     <visual>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0175 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 1 4" />
+        <box size="0.060 0.035 0.022" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.0175 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 1 4" />
+        <box size="0.060 0.035 0.022" />
       </geometry>
     </collision>
   </link>
 
   <link name="leg_left_3">
     <visual>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.021 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.042 0.055" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -1.5 0" rpy="0 0 0" />
+      <origin xyz="0 -0.021 0" rpy="0 0 0" />
       <geometry>
-        <box size="3 3 4" />
+        <box size="0.045 0.042 0.055" />
       </geometry>
     </collision>
   </link>
 
   <link name="foot_right">
     <visual>
-      <origin xyz="0 -0.5 1" rpy="0 0 0" />
+      <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="4 1 7" />
+        <box size="0.060 0.005 0.090" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -0.5 1" rpy="0 0 0" />
+      <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="4 1 7" />
+        <box size="0.060 0.005 0.090" />
       </geometry>
     </collision>
   </link>
 
   <link name="foot_left">
     <visual>
-      <origin xyz="0 -0.5 1" rpy="0 0 0" />
+      <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="4 1 7" />
+        <box size="0.060 0.005 0.090" />
       </geometry>
       <material name="mdf" />
     </visual>
     <collision>
-      <origin xyz="0 -0.5 1" rpy="0 0 0" />
+      <origin xyz="0 -0.0025 0" rpy="0 0 0" />
       <geometry>
-        <box size="4 1 7" />
+        <box size="0.060 0.005 0.090" />
       </geometry>
     </collision>
   </link>
@@ -304,7 +304,7 @@
     <parent link="base_link"/>
     <child link="head"/>
 
-    <origin xyz="0 4.5 0.5" rpy="0 0 0" />
+    <origin xyz="0 0.070 -0.005" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -313,7 +313,7 @@
     <parent link="base_link"/>
     <child link="arm_right_virtual"/>
 
-    <origin xyz="-5 2 1" rpy="0 0 0" />
+    <origin xyz="-0.075 0.040 0.025" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -331,7 +331,7 @@
     <parent link="base_link"/>
     <child link="arm_left_virtual"/>
 
-    <origin xyz="5 2 1" rpy="0 0 0" />
+    <origin xyz="0.075 0.040 0.025" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -349,7 +349,7 @@
     <parent link="arm_right_1"/>
     <child link="arm_right_2"/>
 
-    <origin xyz="-1 -4 -1" rpy="0 -1.5708 0" />
+    <origin xyz="-0.020 -0.080 -0.010" rpy="0 -1.5708 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -358,7 +358,7 @@
     <parent link="arm_left_1"/>
     <child link="arm_left_2"/>
 
-    <origin xyz="1 -4 -1" rpy="0 -1.5708 0" />
+    <origin xyz="0.020 -0.080 -0.010" rpy="0 -1.5708 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -367,7 +367,7 @@
     <parent link="base_link"/>
     <child link="stomach"/>
 
-    <origin xyz="0 0 1.5" rpy="0 0 0" />
+    <origin xyz="0 -0.020 0.005" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -376,7 +376,7 @@
     <parent link="stomach"/>
     <child link="hip"/>
 
-    <origin xyz="0 -5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.065 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -385,7 +385,7 @@
     <parent link="hip"/>
     <child link="hip_right"/>
 
-    <origin xyz="-2.5 -1.5 0" rpy="0 0 0" />
+    <origin xyz="-0.035 -0.017 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -394,7 +394,7 @@
     <parent link="hip_right"/>
     <child link="leg_right_1"/>
 
-    <origin xyz="0 -3.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.050 0.010" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -403,7 +403,7 @@
     <parent link="hip"/>
     <child link="hip_left"/>
 
-    <origin xyz="2.5 -1.5 0" rpy="0 0 0" />
+    <origin xyz="0.035 -0.017 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -412,7 +412,7 @@
     <parent link="hip_left"/>
     <child link="leg_left_1"/>
 
-    <origin xyz="0 -3.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.050 0.010" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -421,7 +421,7 @@
     <parent link="leg_right_1"/>
     <child link="leg_right_2"/>
 
-    <origin xyz="0 -0.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.010 -0.010" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -430,7 +430,7 @@
     <parent link="leg_left_1"/>
     <child link="leg_left_2"/>
 
-    <origin xyz="0 -0.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.010 -0.010" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -439,7 +439,7 @@
     <parent link="leg_right_2"/>
     <child link="leg_right_3"/>
 
-    <origin xyz="0 -1.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.020 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -448,7 +448,7 @@
     <parent link="leg_left_2"/>
     <child link="leg_left_3"/>
 
-    <origin xyz="0 -1.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.020 0" rpy="0 0 0" />
     <axis xyz="1 0 0" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -457,7 +457,7 @@
     <parent link="leg_right_3"/>
     <child link="foot_right"/>
 
-    <origin xyz="0 -3.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.055 0.01" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
@@ -466,7 +466,7 @@
     <parent link="leg_left_3"/>
     <child link="foot_left"/>
 
-    <origin xyz="0 -3.5 0" rpy="0 0 0" />
+    <origin xyz="0 -0.055 0.01" rpy="0 0 0" />
     <axis xyz="0 0 1" />
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
   </joint>
