@@ -14,6 +14,12 @@
       </geometry>
       <material name="aluminium" />
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="2.5 2 2" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="body">
@@ -24,6 +30,12 @@
       </geometry>
       <material name="aluminium" />
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="8 6 5" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="arm_right_virtual" />
@@ -36,6 +48,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -3 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 6 0.5" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="arm_right_2">
@@ -46,6 +64,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 5 0.5" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="arm_left_virtual" />
@@ -58,6 +82,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -3 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 6 0.5" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="arm_left_2">
@@ -68,6 +98,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1 5 0.5" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="stomach">
@@ -78,6 +114,12 @@
       </geometry>
       <material name="aluminium" />
     </visual>
+    <collision>
+      <origin xyz="0 -2.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 5 3" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="hip">
@@ -88,6 +130,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -0.5 0" rpy="0 0 0" />
+      <geometry>
+        <box size="9 1 5" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="hip_right_virtual" />
@@ -100,6 +148,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="leg_right_2_virtual" />
@@ -112,6 +166,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="hip_left_virtual" />
@@ -124,6 +184,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="leg_left_2_virtual" />
@@ -136,6 +202,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -2 0" rpy="0 0 0" />
+      <geometry>
+        <box size="3 4 4" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="foot_right">
@@ -146,6 +218,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -0.5 1" rpy="0 0 0" />
+      <geometry>
+        <box size="4 1 7" />
+      </geometry>
+    </collision>
   </link>
 
   <link name="foot_left">
@@ -156,6 +234,12 @@
       </geometry>
       <material name="mdf" />
     </visual>
+    <collision>
+      <origin xyz="0 -0.5 1" rpy="0 0 0" />
+      <geometry>
+        <box size="4 1 7" />
+      </geometry>
+    </collision>
   </link>
 
 
