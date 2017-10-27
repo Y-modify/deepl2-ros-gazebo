@@ -138,7 +138,7 @@
     </collision>
   </link>
 
-  <link name="hip_right_virtual">
+  <link name="hip_right">
     <visual>
       <origin xyz="0 -1.5 0" rpy="0 0 0" />
       <geometry>
@@ -202,7 +202,7 @@
     </collision>
   </link>
 
-  <link name="hip_left_virtual">
+  <link name="hip_left">
     <visual>
       <origin xyz="0 -1.5 0" rpy="0 0 0" />
       <geometry>
@@ -382,7 +382,7 @@
 
   <joint name="hip_joint_right_z" type="revolute">
     <parent link="hip"/>
-    <child link="hip_right_virtual"/>
+    <child link="hip_right"/>
 
     <origin xyz="-2.5 -1.5 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
@@ -390,7 +390,7 @@
   </joint>
 
   <joint name="hip_joint_right_x" type="revolute">
-    <parent link="hip_right_virtual"/>
+    <parent link="hip_right"/>
     <child link="leg_right_1"/>
 
     <origin xyz="0 -3.5 0" rpy="0 0 0" />
@@ -400,7 +400,7 @@
 
   <joint name="hip_joint_left_z" type="revolute">
     <parent link="hip"/>
-    <child link="hip_left_virtual"/>
+    <child link="hip_left"/>
 
     <origin xyz="2.5 -1.5 0" rpy="0 0 0" />
     <axis xyz="0 0 1" />
@@ -408,7 +408,7 @@
   </joint>
 
   <joint name="hip_joint_left_x" type="revolute">
-    <parent link="hip_left_virtual"/>
+    <parent link="hip_left"/>
     <child link="leg_left_1"/>
 
     <origin xyz="0 -3.5 0" rpy="0 0 0" />
