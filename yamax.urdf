@@ -24,6 +24,10 @@
         <box size="0.035 0.035 0.023" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.0120" />
+      <inertia ixx="0.00000175" ixy="0" ixz="0" iyy="0.00000175" iyz="0" izz="0.00000245" />
+    </inertial>
   </link>
 
   <link name="base_link">
@@ -40,6 +44,10 @@
         <box size="0.05 0.11 0.094" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.233" />
+      <inertia ixx="0.000407" ixy="0" ixz="0" iyy="0.000220" iyz="0" izz="0.000283" />
+    </inertial>
   </link>
 
   <link name="arm_right_virtual" />
@@ -58,6 +66,10 @@
         <box size="0.004 0.02 0.09" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.00914" />
+      <inertia ixx="0.00000647" ixy="0" ixz="0" iyy="0.00000618" iyz="0" izz="3.17e-7" />
+    </inertial>
   </link>
 
   <link name="arm_right_2">
@@ -74,6 +86,10 @@
         <box size="0.004 0.02 0.06" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.00355" />
+      <inertia ixx="0.00000118" ixy="0" ixz="0" iyy="0.00000107" iyz="0" izz="1.23e-7" />
+    </inertial>
   </link>
 
   <link name="arm_left_virtual" />
@@ -92,6 +108,10 @@
         <box size="0.004 0.02 0.09" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.00914" />
+      <inertia ixx="0.00000647" ixy="0" ixz="0" iyy="0.00000618" iyz="0" izz="3.17e-7" />
+    </inertial>
   </link>
 
   <link name="arm_left_2">
@@ -108,6 +128,10 @@
         <box size="0.004 0.02 0.06" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.00355" />
+      <inertia ixx="0.00000118" ixy="0" ixz="0" iyy="0.00000107" iyz="0" izz="1.23e-7" />
+    </inertial>
   </link>
 
   <link name="stomach">
@@ -124,6 +148,10 @@
         <box size="0.054 0.053 0.070" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.00972" />
+      <inertia ixx="0.00000624" ixy="0" ixz="0" iyy="0.00000633" iyz="0" izz="0.00000464" />
+    </inertial>
   </link>
 
   <link name="hip">
@@ -140,6 +168,10 @@
         <box size="0.05 0.11 0.004" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.072" />
+      <inertia ixx="0.0000727" ixy="0" ixz="0" iyy="0.0000151" iyz="0" izz="0.0000876" />
+    </inertial>
   </link>
 
   <link name="hip_right">
@@ -156,6 +188,10 @@
         <box size="0.055 0.045 0.045" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.131" />
+      <inertia ixx="0.0000442" ixy="0" ixz="0" iyy="0.0000551" iyz="0" izz="0.0000551" />
+    </inertial>
   </link>
 
   <link name="leg_right_1">
@@ -172,6 +208,10 @@
         <box size="0.045 0.045 0.023" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.0599" />
+      <inertia ixx="0.0000127" ixy="0" ixz="0" iyy="0.0000127" iyz="0" izz="0.0000202" />
+    </inertial>
   </link>
 
   <link name="leg_right_2">
@@ -188,6 +228,10 @@
         <box size="0.022 0.060 0.035" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.0036" />
+      <inertia ixx="0.0000014475" ixy="0" ixz="0" iyy="5.127e-7" iyz="0" izz="0.0000012252" />
+    </inertial>
   </link>
 
   <link name="leg_right_3">
@@ -204,6 +248,10 @@
         <box size="0.055 0.045 0.042" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.131" />
+      <inertia ixx="0.00003504825" ixy="0" ixz="0" iyy="0.00004429825" iyz="0" izz="0.0000467125" />
+    </inertial>
   </link>
 
   <link name="hip_left">
@@ -220,6 +268,10 @@
         <box size="0.055 0.045 0.045" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.131" />
+      <inertia ixx="0.0000442" ixy="0" ixz="0" iyy="0.0000551" iyz="0" izz="0.0000551" />
+    </inertial>
   </link>
 
   <link name="leg_left_1">
@@ -236,6 +288,10 @@
         <box size="0.045 0.045 0.023" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.0599" />
+      <inertia ixx="0.0000127" ixy="0" ixz="0" iyy="0.0000127" iyz="0" izz="0.0000202" />
+    </inertial>
   </link>
 
   <link name="leg_left_2">
@@ -252,6 +308,10 @@
         <box size="0.022 0.060 0.035" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.0036" />
+      <inertia ixx="0.0000014475" ixy="0" ixz="0" iyy="5.127e-7" iyz="0" izz="0.0000012252" />
+    </inertial>
   </link>
 
   <link name="leg_left_3">
@@ -268,6 +328,10 @@
         <box size="0.055 0.045 0.042" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.131" />
+      <inertia ixx="0.00003504825" ixy="0" ixz="0" iyy="0.00004429825" iyz="0" izz="0.0000467125" />
+    </inertial>
   </link>
 
   <link name="foot_right">
@@ -284,6 +348,10 @@
         <box size="0.090 0.060 0.004" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.0209" />
+      <inertia ixx="0.000006297866666666666" ixy="0" ixz="0" iyy="0.000014135366666666665" iyz="0" izz="0.000020377499999999996" />
+    </inertial>
   </link>
 
   <link name="foot_left">
@@ -300,6 +368,10 @@
         <box size="0.090 0.060 0.004" />
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.0209" />
+      <inertia ixx="0.000006297866666666666" ixy="0" ixz="0" iyy="0.000014135366666666665" iyz="0" izz="0.000020377499999999996" />
+    </inertial>
   </link>
 
 
