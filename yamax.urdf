@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <robot name="yamax">
   <material name="aluminium">
     <color rgba="0.5820 0.6445 0.6484 1.0"/>
@@ -22,7 +23,7 @@
     </collision>
   </link>
 
-  <link name="body">
+  <link name="base_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -300,7 +301,7 @@
 
 
   <joint name="neck" type="revolute">
-    <parent link="body"/>
+    <parent link="base_link"/>
     <child link="head"/>
 
     <origin xyz="0 4.5 0.5" rpy="0 0 0" />
@@ -309,7 +310,7 @@
   </joint>
 
   <joint name="shoulder_right_x" type="revolute">
-    <parent link="body"/>
+    <parent link="base_link"/>
     <child link="arm_right_virtual"/>
 
     <origin xyz="-5 2 1" rpy="0 0 0" />
@@ -327,7 +328,7 @@
   </joint>
 
   <joint name="shoulder_left_x" type="revolute">
-    <parent link="body"/>
+    <parent link="base_link"/>
     <child link="arm_left_virtual"/>
 
     <origin xyz="5 2 1" rpy="0 0 0" />
@@ -363,7 +364,7 @@
   </joint>
 
   <joint name="backbone_1" type="revolute">
-    <parent link="body"/>
+    <parent link="base_link"/>
     <child link="stomach"/>
 
     <origin xyz="0 0 1.5" rpy="0 0 0" />
