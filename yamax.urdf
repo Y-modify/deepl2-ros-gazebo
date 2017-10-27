@@ -6,6 +6,9 @@
   <material name="mdf">
     <color rgba="0.8984 0.4922 0.1328 1.0"/>
   </material>
+  <material name="motor">
+    <color rgba="0.1718 0.2421 0.3125 1.0"/>
+  </material>
 
   <link name="head">
     <visual>
@@ -145,7 +148,7 @@
       <geometry>
         <box size="0.045 0.045 0.055" />
       </geometry>
-      <material name="mdf" />
+      <material name="motor" />
     </visual>
     <collision>
       <origin xyz="0 -0.0225 0" rpy="0 0 0" />
@@ -161,7 +164,7 @@
       <geometry>
         <box size="0.045 0.023 0.045" />
       </geometry>
-      <material name="mdf" />
+      <material name="motor" />
     </visual>
     <collision>
       <origin xyz="0 -0.0115 0" rpy="0 0 0" />
@@ -193,7 +196,7 @@
       <geometry>
         <box size="0.045 0.042 0.055" />
       </geometry>
-      <material name="mdf" />
+      <material name="motor" />
     </visual>
     <collision>
       <origin xyz="0 -0.021 0" rpy="0 0 0" />
@@ -209,7 +212,7 @@
       <geometry>
         <box size="0.045 0.045 0.055" />
       </geometry>
-      <material name="mdf" />
+      <material name="motor" />
     </visual>
     <collision>
       <origin xyz="0 -0.0225 0" rpy="0 0 0" />
@@ -225,7 +228,7 @@
       <geometry>
         <box size="0.045 0.023 0.045" />
       </geometry>
-      <material name="mdf" />
+      <material name="motor" />
     </visual>
     <collision>
       <origin xyz="0 -0.0115 0" rpy="0 0 0" />
@@ -257,7 +260,7 @@
       <geometry>
         <box size="0.045 0.042 0.055" />
       </geometry>
-      <material name="mdf" />
+      <material name="motor" />
     </visual>
     <collision>
       <origin xyz="0 -0.021 0" rpy="0 0 0" />
