@@ -1,8 +1,28 @@
 <launch>
   <rosparam file="$(find yamax_control)/config/controller.yml" command="load"/>
   <node name="controller_spawner" pkg="controller_manager"
-                type="spawner" ns="yamax" output="screen"
-                args="joint_state_controller"/>
+                type="spawner" ns="/yamax" output="screen"
+                args="joint_state_controller
+                      neck_position_controller
+                      shoulder_right_x_position_controller
+                      shoulder_right_z_position_controller
+                      shoulder_left_x_position_controller
+                      shoulder_left_z_position_controller
+                      elbow_right_position_controller
+                      elbow_left_position_controller
+                      backbone_1_position_controller
+                      backbone_2_position_controller
+                      hip_joint_right_z_position_controller
+                      hip_joint_right_x_position_controller
+                      hip_joint_left_z_position_controller
+                      hip_joint_left_x_position_controller
+                      knee_right_position_controller
+                      knee_left_position_controller
+                      ankle_1_right_position_controller
+                      ankle_1_left_position_controller
+                      ankle_2_right_position_controller
+                      ankle_2_left_position_controller
+                "/>
   <node name="robot_state_publisher" pkg="robot_state_publisher"
                 type="robot_state_publisher"
                 respawn="false" output="screen" ns="/yamax">
