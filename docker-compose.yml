@@ -1,0 +1,8 @@
+version: '2'
+services:
+  yamax:
+    build: .
+    image: "coorde/yamax"
+    container_name: "yamax"
+    ports:
+     - "22000:22"
