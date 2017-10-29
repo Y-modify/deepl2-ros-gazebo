@@ -1,5 +1,5 @@
 <launch>
-  <rosparam file="$(find yamax_control)/config/controller.yaml" command="load"/>
+  <rosparam file="$(find yamax_control)/config/controller.yml" command="load"/>
   <node name="controller_spawner" pkg="controller_manager"
                 type="spawner" ns="yamax" output="screen"
                 args="joint_state_controller"/>
