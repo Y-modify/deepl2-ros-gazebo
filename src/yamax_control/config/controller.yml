@@ -2,79 +2,79 @@ yamax:
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50
+    
   neck_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: neck
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   shoulder_right_x_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: shoulder_right_x
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   shoulder_right_z_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: shoulder_right_z
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   shoulder_left_x_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: shoulder_left_x
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   shoulder_left_z_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: shoulder_left_z
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   elbow_right_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: elbow_right
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   elbow_left_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: elbow_left
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   backbone_1_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: backbone_1
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   backbone_2_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: backbone_2
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   hip_joint_right_z_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: hip_joint_right_z
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   hip_joint_right_x_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: hip_joint_right_x
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   hip_joint_left_z_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: hip_joint_left_z
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   hip_joint_left_x_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: hip_joint_left_x
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   knee_right_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: knee_right
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   knee_left_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: knee_left
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   ankle_1_right_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: ankle_1_right
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   ankle_1_left_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: ankle_1_left
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   ankle_2_right_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: ankle_2_right
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   ankle_2_left_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: ankle_2_left
-    pid: {p: 100.0, i: 0.01, d: 10.0}
