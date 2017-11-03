@@ -10,7 +10,8 @@ RUN apt-get update \
     && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd \
     && echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config \
     && touch ~/.Xauthority \
-    && curl -ssL http://osrf-distributions.s3.amazonaws.com/gazebo/gazebo7_install.sh | bash \
+    && echo "deb http://packages.osrfoundation.org/gazebo/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/gazebo-latest.list \
+    && curl http://packages.osrfoundation.org/gazebo.key | apt-key add - \
     && apt-get update \
     && apt-get install -y --no-install-recommends xauth ros-lunar-robot-state-publisher ros-lunar-ros-control ros-lunar-ros-controllers ros-lunar-gazebo-ros ros-lunar-gazebo-ros-control ros-lunar-joint-state-controller ros-lunar-position-controllers \
     && apt-get clean \
