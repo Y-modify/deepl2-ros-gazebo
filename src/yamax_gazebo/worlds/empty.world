@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <physics type="ode">
+       <stepTime>0.01</stepTime>
+       <updateRate>0</updateRate>
+    </physics>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+  </world>
+</sdf>
