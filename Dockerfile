@@ -16,7 +16,6 @@ RUN apt-get update \
     && apt-get install -y gazebo7 libgazebo7-dev \
     && easy_install pip \
     && pip install tensorflow keras==2.0.6 keras-rl h5py gym \
-    && apt-get update \
     && apt-get install -y --no-install-recommends xauth ros-lunar-gazebo-plugins ros-lunar-joint-state-publisher ros-lunar-rviz ros-lunar-robot-state-publisher ros-lunar-ros-control ros-lunar-ros-controllers ros-lunar-gazebo-ros ros-lunar-gazebo-ros-control ros-lunar-joint-state-controller ros-lunar-position-controllers \
     && git clone https://github.com/erlerobot/gym-gazebo.git \ 
     && cd gym-gazebo \
