@@ -53,11 +53,11 @@ class YamaXSimEnv(gazebo_env.GazeboEnv):
                        "hip_joint_right_z", "hip_joint_right_x", "hip_joint_left_z", "hip_joint_left_x", "knee_right", "knee_left", "ankle_1_right", "ankle_1_left", "ankle_2_right", "ankle_2_left"]
         self.fail_threshold = 0.5
         self.success_threshold = 5
-        self.dt = 0.1
+        self.dt = 1
         self.publishers = map(lambda j: rospy.Publisher(
             '/yamax/' + j + '_position_controller', Float64, queue_size=10), self.joints)
 
-        high_joints = np.array([1] * len(self.joints))
+        high_joints = np.array([1.57] * len(self.joints))
         # 行動空間 (+, 0, -の関節数乗) 1をもっと細かくするもありかも
         self.action_space = gym.spaces.Box(low=-high_joints, high=high_joints)
 
@@ -123,8 +123,7 @@ class YamaXSimEnv(gazebo_env.GazeboEnv):
         # action = n2a(action_n, 3)
         # actionを受け取り、次のstateを決定
         for (i, act) in enumerate(action):
-            diff = (act - 1) * self.dt  # acc: -0.1 0 0.1
-            state = self.current_state[i] + diff
+            state = self.current_state[i] + act * self.dt
             self.current_state[i] = np.clip(state, -1.57, 1.57)
             self.publishers[i].publish(self.current_state[i])
 
