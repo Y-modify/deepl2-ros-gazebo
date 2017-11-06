@@ -6,32 +6,54 @@ import gym.spaces
 from gym_gazebo.envs import gazebo_env
 import numpy as np
 
+import sys
+import signal
+
 from std_msgs.msg import Float64
 from sensor_msgs.msg import Imu
 from std_srvs.srv import Empty
 from nav_msgs.msg import Odometry
 from rosgraph_msgs.msg import Clock
 
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Flatten
+from keras.models import Sequential, Model
+from keras.layers import Dense, Activation, Flatten, Input
 from keras.optimizers import Adam
 
-from rl.agents.dqn import DQNAgent
+from rl.core import Processor
+#from rl.util import WhiteningNormalizer
+from rl.agents import DDPGAgent
 from rl.policy import EpsGreedyQPolicy
 from rl.memory import SequentialMemory
+from rl.random import OrnsteinUhlenbeckProcess
+from rl.keras_future import concatenate
+
 import rl.callbacks
+#import tensorflow as tf
+#from keras.backend import tensorflow_backend
+
+#config = tf.ConfigProto(gpu_options=tf.GPUOptions(allow_growth=True))
+#session = tf.Session(config=config)
+#tensorflow_backend.set_session(session)
+
+class Clipper(Processor):
+    def process_action(self, action):
+        return np.clip(action, -1., 1.)
 
 class YamaXSimEnv(gazebo_env.GazeboEnv):
     def __init__(self):
         gazebo_env.GazeboEnv.__init__(self, "/yamax/src/yamax_gazebo/launch/world.launch")
+	self.reset_proxy = rospy.ServiceProxy('/gazebo/reset_simulation', Empty)
+	self.unpause = rospy.ServiceProxy('/gazebo/unpause_physics', Empty)
+        self.pause = rospy.ServiceProxy('/gazebo/pause_physics', Empty)
         self.joints = ["neck", "shoulder_right_x", "shoulder_right_z", "shoulder_left_x", "shoulder_left_z", "elbow_right", "elbow_left", "backbone_1", "backbone_2", "hip_joint_right_z", "hip_joint_right_x", "hip_joint_left_z", "hip_joint_left_x", "knee_right", "knee_left", "ankle_1_right", "ankle_1_left", "ankle_2_right", "ankle_2_left"]
         self.fail_threshold = 0.5
         self.success_threshold = 5
         self.dt = 0.1
         self.publishers = map(lambda j: rospy.Publisher('/yamax/'+j+'_position_controller', Float64, queue_size=10), self.joints)
 
+	high_joints = np.array([1] * len(self.joints))
         # 行動空間 (+, 0, -の関節数乗) 1をもっと細かくするもありかも
-        self.action_space = gym.spaces.Discrete(3 ** len(self.joints))
+        self.action_space = gym.spaces.Box(low=-high_joints, high=high_joints)
 
         high = np.array([1.57] * len(self.joints) + [1] + [10]) # 観測空間(state)の次元 (関節数+加速度+位置) とそれらの最大値(1)
         self.observation_space = gym.spaces.Box(low=-high, high=high) # 最小値は、最大値のマイナスがけ
@@ -85,10 +107,10 @@ class YamaXSimEnv(gazebo_env.GazeboEnv):
     # 各stepごとに呼ばれる
     # actionを受け取り、次のstateとreward、episodeが終了したかどうかを返すように実装
     # action
-    def _step(self, action_n):
+    def _step(self, action):
         self.unpause_simulation()
 
-        action = n2a(action_n, 3)
+        # action = n2a(action_n, 3)
         # actionを受け取り、次のstateを決定
         for (i, act) in enumerate(action):
             diff = (act - 1) * self.dt # acc: -0.1 0 0.1
@@ -139,31 +161,51 @@ class YamaXSimEnv(gazebo_env.GazeboEnv):
         return np.array(self.current_state + [current_accel, current_position])
 
 env = YamaXSimEnv()
-nb_actions = env.action_space.n
+np.random.seed(123)
+assert len(env.action_space.shape) == 1
+nb_actions = env.action_space.shape[0]
 
 # DQNのネットワーク定義
-model = Sequential()
-model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
-model.add(Dense(16))
-model.add(Activation('relu'))
-model.add(Dense(16))
-model.add(Activation('relu'))
-model.add(Dense(16))
-model.add(Activation('relu'))
-model.add(Dense(nb_actions))
-model.add(Activation('linear'))
-print(model.summary())
+actor = Sequential()
+actor.add(Flatten(input_shape=(1,) + env.observation_space.shape))
+actor.add(Dense(400))
+actor.add(Activation('relu'))
+actor.add(Dense(300))
+actor.add(Activation('relu'))
+actor.add(Dense(nb_actions))
+actor.add(Activation('tanh'))
+print(actor.summary())
 
-# experience replay用のmemory
-memory = SequentialMemory(limit=50000, window_length=1)
-# 行動方策はオーソドックスなepsilon-greedy。ほかに、各行動のQ値によって確率を決定するBoltzmannQPolicyが利用可能
-policy = EpsGreedyQPolicy(eps=0.1)
-dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=100,
-        target_model_update=1e-2, policy=policy)
-dqn.compile(Adam(lr=1e-3), metrics=['mae'])
+action_input = Input(shape=(nb_actions,), name='action_input')
+observation_input = Input(shape=(1,) + env.observation_space.shape, name='observation_input')
+flattened_observation = Flatten()(observation_input)
+x = Dense(400)(flattened_observation)
+x = Activation('relu')(x)
+x = concatenate([x, action_input])
+x = Dense(300)(x)
+x = Activation('relu')(x)
+x = Dense(1)(x)
+x = Activation('linear')(x)
+critic = Model(input=[action_input, observation_input], output=x)
+print(critic.summary())
 
-history = dqn.fit(env, nb_steps=50000, visualize=False, verbose=2, nb_max_episode_steps=300)
-dqn.save_weights('dqn_weights.h5f', overwrite=True)
-print(history.history)
+# Finally, we configure and compile our agent. You can use every built-in Keras optimizer and
+# even the metrics!
+memory = SequentialMemory(limit=100000, window_length=1)
+random_process = OrnsteinUhlenbeckProcess(size=nb_actions, theta=.15, mu=0., sigma=.1)
+agent = DDPGAgent(nb_actions=nb_actions, actor=actor, critic=critic, critic_action_input=action_input,
+                  memory=memory, nb_steps_warmup_critic=1000, nb_steps_warmup_actor=1000,
+                  random_process=random_process, gamma=.99, target_model_update=1e-3,
+                  processor=Clipper())
+agent.compile([Adam(lr=1e-4), Adam(lr=1e-3)], metrics=['mae'])
 
-dqn.test(env, nb_episodes=10, visualize=False)
+# Okay, now it's time to learn something! We visualize the training here for show, but this
+# slows down training quite a lot. You can always safely abort the training prematurely using
+# Ctrl + C.
+agent.fit(env, nb_steps=1000000, visualize=False, verbose=1)
+
+# After training is done, we save the final weights.
+agent.save_weights('ddpg_yamax_weights.h5f', overwrite=True)
+
+# Finally, evaluate our algorithm for 5 episodes.
+agent.test(env, nb_episodes=5, visualize=True, nb_max_episode_steps=200)
