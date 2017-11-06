@@ -1,21 +1,32 @@
-FROM ros:lunar
+FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
 
 COPY . yamax/
 
+ENV ROS_DISTRO lunar
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl openssh-server ca-certificates gnupg \
+    && apt-get install -y --no-install-recommends dirmngr curl openssh-server ca-certificates gnupg \
     && mkdir /var/run/sshd \
     && echo 'root:yamaximum314' | chpasswd \
     && sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
     && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd \
     && echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config \
     && touch ~/.Xauthority \
+    && echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list \
+    && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116 \
     && echo "deb http://packages.osrfoundation.org/gazebo/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/gazebo-latest.list \
     && curl http://packages.osrfoundation.org/gazebo.key | apt-key add - \
     && apt-get update \
-    && apt-get install -y gazebo7 libgazebo7-dev \
+    && apt-get install --no-install-recommends -y python-rosdep python-rosinstall python-vcstools \
+    && rosdep init \
+    && rosdep update \
+    && apt-get install --no-install-recommends -y ros-lunar-ros-core=1.3.1-0* ros-lunar-ros-base=1.3.1-0* \
+    && apt-get install --no-install-recommends -y gazebo7 libgazebo7-dev \
     && easy_install pip \
-    && pip install tensorflow keras==2.0.6 keras-rl h5py gym \
+    && pip install tensorflow==1.3.0 keras==2.0.6 keras-rl h5py gym \
     && apt-get install -y --no-install-recommends xauth ros-lunar-gazebo-plugins ros-lunar-joint-state-publisher ros-lunar-rviz ros-lunar-robot-state-publisher ros-lunar-ros-control ros-lunar-ros-controllers ros-lunar-gazebo-ros ros-lunar-gazebo-ros-control ros-lunar-joint-state-controller ros-lunar-position-controllers \
     && git clone https://github.com/erlerobot/gym-gazebo.git \ 
     && cd gym-gazebo \
