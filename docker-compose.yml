@@ -5,4 +5,4 @@ services:
     image: "coorde/yamax"
     container_name: "yamax"
     ports:
-     - "22000:22"
+        - "5900:5900"

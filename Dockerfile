@@ -24,17 +24,23 @@ RUN apt-get update \
     && cd gym-gazebo \
     && pip install -e . \
     && cd .. \
+    && apt-get install -y --no-install-recommends xvfb x11vnc fluxbox \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+ENV DISPLAY :1
 
 COPY . yamax/
 RUN rm -rf yamax/devel yamax/build \
     && . /opt/ros/lunar/setup.sh \
     && cd yamax \
     && catkin_make \
-    && echo '. /opt/ros/lunar/setup.sh' >> /etc/profile.d/docker_init.sh \
-    && echo '. /yamax/devel/setup.sh' >> /etc/profile.d/docker_init.sh
+    && echo '. /opt/ros/lunar/setup.sh' >> /etc/profile \
+    && echo '. /yamax/devel/setup.sh' >> /etc/profile
 
 WORKDIR /yamax
 
-CMD ["/bin/bash"]
+COPY ./vnc-startup.sh /
+EXPOSE 5900
+
+CMD ["/vnc-startup.sh"]
