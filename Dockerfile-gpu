@@ -6,7 +6,7 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends psmisc dirmngr curl ca-certificates gnupg \
+    && apt-get install -y --no-install-recommends build-essential psmisc dirmngr curl ca-certificates gnupg \
     && echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list \
     && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116 \
     && echo "deb http://packages.osrfoundation.org/gazebo/ubuntu xenial main" > /etc/apt/sources.list.d/gazebo-latest.list \
@@ -24,17 +24,23 @@ RUN apt-get update \
     && cd gym-gazebo \
     && pip install -e . \
     && cd .. \
+    && apt-get install -y --no-install-recommends xvfb x11vnc fluxbox \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+ENV DISPLAY :1
 
 COPY . yamax/
 RUN rm -rf yamax/devel yamax/build \
     && . /opt/ros/lunar/setup.sh \
     && cd yamax \
     && catkin_make \
-    && echo '. /opt/ros/lunar/setup.sh' >> /etc/profile.d/docker_init.sh \
-    && echo '. /yamax/devel/setup.sh' >> /etc/profile.d/docker_init.sh
+    && echo '. /opt/ros/lunar/setup.sh' >> /etc/profile \
+    && echo '. /yamax/devel/setup.sh' >> /etc/profile
 
 WORKDIR /yamax
 
-CMD ["/bin/bash"]
+COPY ./vnc-startup.sh /
+EXPOSE 5900
+
+CMD ["/vnc-startup.sh"]
