@@ -6,22 +6,23 @@ A humanoid made for our research about the automation of walk. See: [YamaX](http
 # Get started
 ```shell
 docker-compose up -d
-ssh -Y root@localhost -p 22000
 ```
+then connect to localhost:5900 using VNC
 
 ## Setup
-In the container,
+
 ```shell
 . /opt/ros/lunar/setup.sh
-catkin_make
 . devel/setup.sh
 ```
 
+
 ### Launch a simurator and controllers
 ```shell
-roslaunch yamax_gazebo world.launch
+roslaunch yamax_gazebo world.launch # gui:=true headless:=false if you need gui
 ```
 Now you can control joints by publishing to `/yamax/{joint_name}_position_controller/command`
+
 ###### Example:
 ```shell
 rostopic pub /yamax/neck_position_controller/command std_msgs/Float64 1.57
