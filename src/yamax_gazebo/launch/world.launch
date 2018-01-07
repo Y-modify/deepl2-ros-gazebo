@@ -28,7 +28,7 @@
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-urdf -model yamax -param robot_description -z 0.25"/>
+        args="-urdf -model yamax -param robot_description -z 0.24099"/>
 
   <!-- ros_control motoman launch file -->
   <!-- Comment out if controller_manager would not work -->
