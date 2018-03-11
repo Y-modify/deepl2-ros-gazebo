@@ -49,4 +49,4 @@ WORKDIR /yamax
 COPY ./vnc-startup.sh /
 EXPOSE 5900
 
-CMD ["/vnc-startup.sh"]
+CMD bash -i -c "/vnc-startup.sh && roslaunch yamax_gazebo world.launch gui:=True headless:=False"
