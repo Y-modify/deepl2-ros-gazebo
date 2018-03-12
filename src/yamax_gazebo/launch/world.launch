@@ -7,7 +7,7 @@
   <arg name="gui" default="false"/>
   <arg name="headless" default="true"/>
   <arg name="debug" default="false"/>
-  <arg name="verbose" default="false"/>
+  <arg name="verbose" default="true"/>
   <arg name="physics" default="ode"/>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
