@@ -5,34 +5,48 @@ ENV ROS_DISTRO lunar
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
-# Gazebo, buil
-ADD gazebo-9.0.0-full+force_preserveWorldVelocity+warn.deb /tmp/gazebo.deb
+ADD http://osrf-distributions.s3.amazonaws.com/gazebo/releases/gazebo-9.0.0.tar.bz2 /tmp/gazebo-source.tar.bz2
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends xvfb x11vnc fluxbox build-essential psmisc dirmngr curl ca-certificates gnupg software-properties-common \
+    && apt-get install -y --no-install-recommends xvfb x11vnc fluxbox build-essential psmisc dirmngr curl ca-certificates gnupg \
     && echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list \
     && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116 \
-    && echo "deb http://packages.osrfoundation.org/gazebo/ubuntu xenial main" > /etc/apt/sources.list.d/gazebo-latest.list \
+    && echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable xenial main" > /etc/apt/sources.list.d/gazebo-stable.list \
     && curl http://packages.osrfoundation.org/gazebo.key | apt-key add - \
-    && apt-add-repository -y ppa:libccd-debs \
-    && apt-add-repository -y ppa:fcl-debs \
-    && apt-add-repository -y ppa:dartsim \
     && apt-get update \
-    && apt-get install --no-install-recommends -y  libdart6-dev libdart6-utils-urdf-dev python-rosdep python-rosinstall python-vcstools \
+    && apt-get install --no-install-recommends -y python-rosdep python-rosinstall python-vcstools \
     && rosdep init \
     && rosdep update \
-    && apt-get install --no-install-recommends -y ros-lunar-ros-core=1.3.1-0* ros-lunar-ros-base=1.3.1-0* \
     && easy_install pip \
     && pip install tensorflow==1.3.0 keras==2.0.6 keras-rl h5py gym
-RUN apt-get install -y --no-install-recommends xauth ros-lunar-joint-state-publisher ros-lunar-rviz ros-lunar-robot-state-publisher ros-lunar-gazebo9-ros-pkgs ros-lunar-gazebo9-ros-control ros-lunar-ros-controllers ros-lunar-ros-control ros-lunar-joint-state-controller ros-lunar-position-controllers ros-lunar-xacro \
+
+RUN apt-get install -y --no-install-recommends ros-lunar-ros-core=1.3.1-0* ros-lunar-ros-base=1.3.1-0* xauth ros-lunar-joint-state-publisher ros-lunar-rviz ros-lunar-robot-state-publisher ros-lunar-gazebo9-ros-pkgs ros-lunar-gazebo9-ros-control ros-lunar-ros-controllers ros-lunar-ros-control ros-lunar-joint-state-controller ros-lunar-position-controllers ros-lunar-xacro
+
+COPY force-preserveWorldVelocity-true.patch /tmp/
+RUN cd /tmp \
+    && curl https://bitbucket.org/osrf/release-tools/raw/default/jenkins-scripts/lib/dependencies_archive.sh > dependencies.sh \
+    && bash -c "ROS_DISTRO=lunar . ./dependencies.sh && apt-get install --no-install-recommends -y  \$(sed 's:\\\\ ::g' <<< \$BASE_DEPENDENCIES) \$(sed 's:\\\\ ::g' <<< \$GAZEBO_BASE_DEPENDENCIES_NO_SDFORMAT) libsdformat6-dev" \
+    && tar xf /tmp/gazebo-source.tar.bz2 \
+    && cd gazebo-9.0.0 \
+    && patch -p1 < /tmp/force-preserveWorldVelocity-true.patch \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make -j 4 \
+    && make package
+
+RUN apt-get purge -y curl build-essential \
+    && apt-get autoremove -y \
     && dpkg -r --force-depends gazebo9 libgazebo9 libgazebo9-dev \
-    && dpkg -i --force-depends --force-overwrite /tmp/gazebo.deb \
+    && dpkg -i --force-depends --force-overwrite /tmp/gazebo-9.0.0/build/gazebo-9.0.0.deb \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/*
+
+RUN cd /tmp \
     && git clone https://github.com/erlerobot/gym-gazebo.git \
     && cd gym-gazebo \
-    && pip install -e . \
-    && cd .. \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && pip install -e .
 
 ENV DISPLAY :1
 
