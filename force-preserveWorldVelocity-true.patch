@@ -1,0 +1,58 @@
+diff -uprN gazebo-9.0.0/gazebo/physics/Joint.hh gazebo-9.0.0-diff/gazebo/physics/Joint.hh
+--- gazebo-9.0.0/gazebo/physics/Joint.hh	2018-01-25 22:25:48.000000000 +0000
++++ gazebo-9.0.0-diff/gazebo/physics/Joint.hh	2018-03-10 08:54:00.530882155 +0000
+@@ -362,7 +362,7 @@ namespace gazebo
+       /// \return returns true if operation succeeds, false if it fails.
+       public: virtual bool SetPosition(
+                   const unsigned int _index, const double _position,
+-                  const bool _preserveWorldVelocity = false);
++                  const bool _preserveWorldVelocity = true);
+ 
+       /// \brief Helper function for maximal coordinate solver SetPosition.
+       /// The child links of this joint are updated based on position change.
+@@ -376,7 +376,7 @@ namespace gazebo
+       /// \return returns true if operation succeeds, false if it fails.
+       protected: bool SetPositionMaximal(
+                   const unsigned int _index, double _position,
+-                  const bool _preserveWorldVelocity = false);
++                  const bool _preserveWorldVelocity = true);
+ 
+       /// \brief Helper function for maximal coordinate solver SetVelocity.
+       /// The velocity of the child link of this joint is updated relative
+diff -uprN gazebo-9.0.0/gazebo/physics/Link.hh gazebo-9.0.0-diff/gazebo/physics/Link.hh
+--- gazebo-9.0.0/gazebo/physics/Link.hh	2018-01-25 22:25:48.000000000 +0000
++++ gazebo-9.0.0-diff/gazebo/physics/Link.hh	2018-03-10 08:54:56.412113465 +0000
+@@ -556,7 +556,7 @@ namespace gazebo
+       public: void MoveFrame(
+                   const ignition::math::Pose3d &_worldReferenceFrameSrc,
+                   const ignition::math::Pose3d &_worldReferenceFrameDst,
+-                  const bool _preserveWorldVelocity = false);
++                  const bool _preserveWorldVelocity = true);
+ 
+       /// \brief Helper function to find all connected links of a link
+       /// based on parent/child relations of joints. For example,
+diff -uprN gazebo-9.0.0/gazebo/physics/ode/ODEJoint.cc gazebo-9.0.0-diff/gazebo/physics/ode/ODEJoint.cc
+--- gazebo-9.0.0/gazebo/physics/ode/ODEJoint.cc	2018-01-25 22:25:48.000000000 +0000
++++ gazebo-9.0.0-diff/gazebo/physics/ode/ODEJoint.cc	2018-03-11 06:24:01.099283415 +0000
+@@ -1198,7 +1198,7 @@ void ODEJoint::ApplyExplicitStiffnessDam
+ 
+ //////////////////////////////////////////////////
+ bool ODEJoint::SetPosition(const unsigned int _index, const double _position,
+-                           const bool _preserveWorldVelocity)
++                           const bool /*_preserveWorldVelocity*/)
+ {
+-  return Joint::SetPositionMaximal(_index, _position, _preserveWorldVelocity);
++  return Joint::SetPositionMaximal(_index, _position, true);
+ }
+diff -uprN gazebo-9.0.0/gazebo/physics/ode/ODEJoint.hh gazebo-9.0.0-diff/gazebo/physics/ode/ODEJoint.hh
+--- gazebo-9.0.0/gazebo/physics/ode/ODEJoint.hh	2018-01-25 22:25:48.000000000 +0000
++++ gazebo-9.0.0-diff/gazebo/physics/ode/ODEJoint.hh	2018-03-10 08:53:23.702068693 +0000
+@@ -93,7 +93,7 @@ namespace gazebo
+       public: virtual bool SetPosition(
+                               const unsigned int _index,
+                               const double _position,
+-                              const bool _preserveWorldVelocity = false)
++                              const bool _preserveWorldVelocity = true)
+             override;
+ 
+       // Documentation inherited.
