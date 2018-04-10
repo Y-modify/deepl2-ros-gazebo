@@ -2,10 +2,13 @@
 
 Please check out [Y-modify/deepl2](https://github.com/Y-modify/deepl2)
 
-# YamaX
+# deepl2-ros-gazebo
 [![license](https://img.shields.io/github/license/Y-modify/deepl2-ros-gazebo.svg)](LICENSE)
 
-A humanoid made for our research about the automation of walk. See: [YamaX](https://www.y-modify.org/yamax)
+An experiment to make [YamaX](https://www.y-modify.org/yamax) walk in the simulation environment using ROS and Gazebo.
+
+DeepL2 Project: [https://blog.y-modify.org/2018/01/04/deepl2-start/](https://blog.y-modify.org/2018/01/04/deepl2-start/)
+
 
 # Get started
 ```shell
