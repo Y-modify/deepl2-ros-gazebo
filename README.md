@@ -1,5 +1,9 @@
+**DEPRECATED: THIS REPOSITORY IS NO LONGER MAINTAINED**
+
+Please check out [Y-modify/deepl2](https://github.com/Y-modify/deepl2)
+
 # YamaX
-[![license](https://img.shields.io/github/license/Y-modify/YamaX.svg)](LICENSE)
+[![license](https://img.shields.io/github/license/Y-modify/deepl2-ros-gazebo.svg)](LICENSE)
 
 A humanoid made for our research about the automation of walk. See: [YamaX](https://www.y-modify.org/yamax)
 
